@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dear Girls</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#fdf4f2">
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,400&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#fff6f3;--card:rgba(255,255,255,.78);--ink:#352a30;--soft:#8d777f;--acc:#d8688a;--acc2:#f9dde6;--line:rgba(216,104,138,.16);--sage:#d6e8dc;--sky:#dfe6f7;--sun:#fdebc8;
+--serif:"Fraunces",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1518;--card:rgba(52,38,44,.8);--ink:#f8ebee;--soft:#bba2a9;--acc:#f08dac;--acc2:#4d2f3a;--line:rgba(240,141,172,.2);--sage:#2f4638;--sky:#2c3350;--sun:#4a3d24;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1d1518;--card:rgba(52,38,44,.8);--ink:#f8ebee;--soft:#bba2a9;--acc:#f08dac;--acc2:#4d2f3a;--line:rgba(240,141,172,.2);--sage:#2f4638;--sky:#2c3350;--sun:#4a3d24;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);scroll-padding-top:env(safe-area-inset-top,0px)}
+body{max-width:560px;margin:0 auto;padding:0 18px calc(110px + env(safe-area-inset-bottom,0px));position:relative;overflow-x:hidden}
+.blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.55;z-index:-1;pointer-events:none}
+.b1{width:260px;height:260px;background:var(--acc2);top:-60px;right:-80px}.b2{width:300px;height:300px;background:var(--sage);bottom:60px;left:-120px}.b3{width:200px;height:200px;background:var(--sky);top:40%;right:-90px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0}
+h1{font-size:34px;line-height:1.1;padding-top:26px}h2{font-size:24px;margin:26px 0 10px}h3{font-size:18px}
+p{line-height:1.55;margin:6px 0}.soft{color:var(--soft);font-size:14px}.it{font-style:italic;font-family:var(--serif)}
+.card{background:var(--card);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:24px;padding:18px;margin:12px 0;box-shadow:0 10px 30px rgba(216,104,138,.09);animation:up .5s ease both}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;color:inherit;cursor:pointer}
+.mood{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:14px 6px;font-size:14px;transition:.2s}
+.mood i{display:block;font-style:normal;font-size:28px;margin-bottom:4px}
+.mood.on,.chip.on{background:var(--acc2);border-color:var(--acc);transform:scale(1.03)}
+.chip{display:inline-block;border:1.5px solid var(--line);background:var(--card);border-radius:20px;padding:8px 14px;margin:4px 4px 0 0;font-size:14px}
+.btn{background:linear-gradient(135deg,var(--acc),#e79ab3);color:#fff;border:0;border-radius:16px;padding:13px 22px;font-size:16px;font-weight:500;margin-top:12px;box-shadow:0 6px 16px rgba(216,104,138,.3)}
+.btn.alt{background:var(--acc2);color:var(--ink);box-shadow:none}
+nav{position:fixed;left:14px;right:14px;max-width:532px;margin:0 auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;background:var(--card);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:28px;padding:6px;box-shadow:0 12px 34px rgba(0,0,0,.12)}
+nav button{flex:1;background:none;border:0;padding:7px 0;font-size:11px;color:var(--soft);border-radius:22px}
+nav button span{display:block;font-size:21px}nav button.on{background:var(--acc2);color:var(--ink)}
+.view{display:none}.view.on{display:block}
+.hero{background:linear-gradient(135deg,var(--acc2),var(--sun));border-radius:28px;padding:20px;margin:16px 0}
+.garden{display:flex;flex-wrap:wrap;gap:6px;font-size:30px;min-height:44px}.garden span{animation:pop .6s ease both}
+@keyframes pop{from{transform:scale(0) rotate(-30deg)}to{transform:none}}
+.orb{width:160px;height:160px;border-radius:50%;margin:26px auto;background:radial-gradient(circle at 35% 30%,#fff7,var(--acc));box-shadow:0 0 0 14px var(--acc2),0 0 50px var(--acc);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:19px;transform:scale(.62);transition:transform 4s ease-in-out}
+.orb.in{transform:scale(1.15)}
+textarea,input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:16px;padding:12px}
+textarea{min-height:84px;resize:vertical}
+details{border-bottom:1px solid var(--line);padding:12px 0}details:last-child{border:0}summary{font-family:var(--serif);font-size:18px;cursor:pointer}summary small{display:block;font-family:var(--sans);font-size:12px;color:var(--acc);margin-top:2px}
+.hug{background:var(--sage);border-radius:18px;padding:14px;margin:12px 0}
+.note{font-size:13px;color:var(--soft);margin-top:20px}
+.msg{padding:11px 15px;border-radius:20px;margin:8px 0;max-width:88%;line-height:1.5;white-space:pre-wrap}
+.me{background:var(--acc2);margin-left:auto}.ai{background:var(--card);border:1px solid var(--line)}
+.row{display:flex;gap:8px;align-items:center}.row .btn{margin-top:0}
+.dots{display:flex;gap:6px;margin:10px 0}.dots b{height:6px;flex:1;border-radius:3px;background:var(--line)}.dots b.on{background:var(--acc)}
+.aff{min-height:110px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:23px;background:linear-gradient(135deg,var(--sky),var(--acc2));border-radius:22px;padding:18px}
+.top{display:flex;justify-content:space-between;align-items:center}.tog{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:18px}
+.ov{position:fixed;inset:0;background:rgba(40,20,30,.55);display:flex;align-items:center;padding:20px;z-index:20}.ov[hidden]{display:none}.still *{animation:none!important;transition:none!important}.float{position:absolute;left:10%;right:10%;bottom:0;text-align:center;animation:fl 6s ease-in forwards}@keyframes fl{to{transform:translateY(-160px);opacity:0}}
+.still .petal,.still .burst{display:none}
+.burst{position:fixed;pointer-events:none;z-index:30;font-size:24px;animation:bu 1.4s ease-out forwards}@keyframes bu{to{transform:translate(var(--x),var(--y)) rotate(200deg);opacity:0}}
+.blob{animation:flt 14s ease-in-out infinite alternate}@keyframes flt{to{transform:translate(30px,40px) scale(1.12)}}
+.petal{position:fixed;top:-40px;z-index:-1;pointer-events:none;opacity:.55;animation:fall linear infinite}@keyframes fall{to{transform:translateY(112vh) rotate(360deg)}}
+.ill{position:absolute;right:14px;top:12px}.spin{transform-origin:40px 40px;animation:sp 40s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}.chip{cursor:pointer}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+<section id="v-today" class="view on">
+ <div class="top"><h1 id="hi">Dear you,</h1><button class="tog" id="theme">🌙</button></div>
+ <p class="soft">No numbers. No calories. No judgment.</p>
+ <div class="card" id="nameCard"><h3>What should I call you?</h3><input type="text" id="nameIn" placeholder="Your name or a nickname" maxlength="20"><button class="btn" id="nameBtn">Nice to meet you</button></div>
+ <div class="hero" style="position:relative;padding-right:96px"><svg class='ill' viewBox='0 0 80 80' width='76' height='76' aria-hidden='true'><g class='spin'><ellipse cx='40' cy='18' rx='10' ry='16' fill='var(--acc)' opacity='.8'/><ellipse cx='40' cy='18' rx='10' ry='16' fill='var(--acc)' opacity='.8' transform='rotate(72 40 40)'/><ellipse cx='40' cy='18' rx='10' ry='16' fill='var(--acc)' opacity='.8' transform='rotate(144 40 40)'/><ellipse cx='40' cy='18' rx='10' ry='16' fill='var(--acc)' opacity='.8' transform='rotate(216 40 40)'/><ellipse cx='40' cy='18' rx='10' ry='16' fill='var(--acc)' opacity='.8' transform='rotate(288 40 40)'/></g><circle cx='40' cy='40' r='9' fill='var(--sun)'/></svg><p class="soft" style="margin:0">Dear girl,</p><p class="it" style="font-size:21px;margin:4px 0" id="quote"></p><p class="soft" id="quoteRu" style="margin:0 0 8px"></p><button class="chip" id="saveNote">♡ Save</button></div><button class="btn" id="resetBtn" style="width:100%">🩷 I need a moment to come back to myself</button><button class='btn alt' id='favBtn' hidden style='width:100%'></button><div id='ban' class='hug' hidden></div><button class='btn alt' id='wkBtn' style='width:100%'>🗓️ Look back on my week</button><div id='wk'></div>
+ <h2>What’s your inner weather?</h2>
+ <div class="grid" id="moods"></div><input type="text" id="cap" maxlength="100" placeholder="What’s happening inside me? (optional)" style="margin-top:10px">
+ <h3 style="margin-top:18px">Your energy</h3><div id="energy"></div>
+ <button class="btn" id="saveCheck">Check in</button>
+ <div id="checkMsg" class="hug" hidden></div><div id="wxh"></div>
+ <h2>Your garden 🌱</h2>
+ <p class="soft">Every time you check in, something blooms. It never wilts, and nobody counts it.</p>
+ <div class="card"><div class="garden" id="garden"></div></div>
+ <h2>A little note to yourself</h2>
+ <div class="card"><p class="it" id="prompt"></p><textarea id="noteIn" placeholder="Write freely. Only you can see this."></textarea>
+ <div class="row"><button class="btn" id="noteBtn">Save note</button><button class="btn alt" id="noteNew">New prompt</button></div>
+ <div id="notes" style="margin-top:12px"></div></div>
+</section>
+
+<section id="v-chat" class="view">
+ <h1>Dear 💬</h1><p class="soft">A gentle AI companion. It listens without judging and never talks about weight, calories or diets. It is not a therapist.</p>
+ <div id="chat"><div class="msg ai">Hi, I’m Dear. How are you, really? You can tell me anything, or tap an idea below.</div></div>
+ <div id="ideas"></div>
+ <div class="row" style="margin-top:10px"><input type="text" id="chatIn" placeholder="Write here…" maxlength="500"><button class="btn" id="sendBtn">Send</button></div>
+ <p class="note">If you feel unsafe or in crisis, please reach out to someone you trust, or call 112 (emergency), 111 or 150 (support) right now.</p>
+</section>
+
+<section id="v-calm" class="view">
+ <h1>Calm Hub</h1><span class='chip' id='vt'></span><p class="soft">When anxiety is loud or you feel like losing control, start anywhere. You don’t have to do it all.</p>
+ <div class="card"><h3>Breathe with the circle</h3>
+  <div><span class="chip on" data-p="4">Steady</span><span class="chip" data-p="6">Long exhale</span></div>
+  <div class="orb" id="orb">ready?</div><div style="text-align:center"><button class="btn" id="breathBtn">Start</button></div></div>
+ <div class="card"><h3>Ground yourself</h3><div class="dots" id="gDots"></div>
+  <p id="gText" style="font-size:18px">Tap “Next” and look around you.</p><button class="btn alt" id="gBtn">Next</button></div>
+ <div class="card"><h3>Ride the wave 🌊</h3><p class="soft">Urges rise, peak and fall, like waves. You only need to ride this one for a few minutes.</p>
+  <p class="it" id="waveTxt" style="font-size:20px">Ready when you are.</p><button class="btn" id="waveBtn">Start 3 minutes</button></div>
+ <div class='card'><h3>Pop the bubbles 🫧</h3><div id='bub' class='grid' style='grid-template-columns:repeat(6,1fr)'></div></div><div class='card'><h3>Sound room 🎧</h3><p class='soft'>Gentle sounds made right on your device. Tap again to change, or switch off.</p><span class='chip sn' data-n='rain'>🌧️ Rain</span><span class='chip sn' data-n='ocean'>🌊 Ocean</span><span class='chip sn' data-n='hum'>🕯️ Warm hum</span><span class='chip sn' data-n='off'>⏹ Off</span><p class='soft' id='snMsg'></p></div><h2>Anchor cards</h2><div class="aff" id="aff">I’m allowed to rest.</div><div style="text-align:center"><button class="btn alt" id="pBtn">Another one</button></div>
+</section>
+
+<section id="v-lib" class="view">
+ <h1>Gentle Knowledge</h1><p class="soft">Explanations, not lectures. Tap a topic to open it.</p>
+ <div id="tags"></div><div class="card" id="articles"></div>
+ <div class="hug"><h3>Need support? (Kazakhstan)</h3><p>Talking to a doctor, psychologist or a trusted adult can really help.</p><p><b>111</b> – national family, women and children line, free, 24/7<br><b>150</b> – helpline for children and youth (WhatsApp +7 708 106-08-10)<br><b>1303</b> – Almaty crisis line<br><b>112</b> – emergency, <b>103</b> – ambulance</p></div>
+ <p class="note">For information only. This app does not replace professional care.</p>
+</section>
+
+<section id="v-space" class="view"><h1>My Space 🕯️</h1><p class="soft">Private and just yours. Everything stays on this device.</p><div id="sTabs" style="margin-top:10px"></div><div id="sBody"></div><div class="card"><h3>Comfort</h3><label class="soft"><input type="checkbox" id="still"> Calm mode: no animations</label><p class='soft' style='margin-top:12px'>Gentle reminder when you open the app</p><div id='rem'></div><p class='soft' style='margin-top:12px'>Accent color</p><div id='sk'></div></div></section>
+<div id="onb" class="ov" hidden><div class="card" style="width:100%;max-width:440px;margin:auto" id="oBody"></div></div>
+<div id="reset" class="ov" hidden><div class="card" style="width:100%;max-width:440px;margin:auto" id="rBody"></div></div>
+<section id="v-feed" class="view">
+ <h1>Support Feed</h1><p class="soft">No likes, no views, no rankings. Post anonymously if you want.</p>
+ <div class="card"><textarea id="post" maxlength="280" placeholder="A small win or something on your heart…"></textarea>
+  <label class="soft"><input type="checkbox" id="anon" checked> Anonymous</label><br><button class="btn" id="postBtn">Share</button></div>
+ <div id="feed"></div><p class="note">In this demo, posts are stored only on your device.</p>
+</section>
+
+<nav>
+ <button data-v="today" class="on"><span>🌸</span>Today</button><button data-v="calm"><span>🫧</span>Calm</button><button data-v="chat"><span>💬</span>Dear</button><button data-v="space"><span>🕯️</span>Space</button><button data-v="lib"><span>📖</span>Learn</button><button data-v="feed"><span>💌</span>Feed</button>
+</nav>
+
+<script>
+const AI_URL='/api/chat';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+$$('nav button').forEach(b=>b.onclick=()=>{$$('nav button,.view').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#v-'+b.dataset.v).classList.add('on');window.scrollTo(0,0)});
+// theme
+let th=store.get('dg_theme',null);function applyTh(){if(th){document.documentElement.dataset.theme=th;$('#theme').textContent=th==='dark'?'☀️':'🌙'}}
+$('#theme').onclick=()=>{const dark=th?th==='dark':matchMedia('(prefers-color-scheme:dark)').matches;th=dark?'light':'dark';store.set('dg_theme',th);applyTh()};applyTh();
+// name
+function greet(){const n=store.get('dg_name','');$('#hi').textContent=n?`Dear ${n},`:'Dear you,';$('#nameCard').hidden=!!n}
+$('#nameBtn').onclick=()=>{const v=$('#nameIn').value.trim();if(v){store.set('dg_name',v);greet()}};greet();
+const Q=["You are not a problem to be solved.","Rest is productive too.","Your worth was never measured in numbers.","Soft is not weak.","Your body carried you here today.","You’re allowed to take up space.","Be as gentle with yourself as you’d be with a friend."];
+const NOTES=[['You don’t have to earn your rest.','Тебе не нужно заслуживать отдых.'],['You are allowed to be a person, not a project.','Тебе можно быть человеком, а не проектом.'],['Soft is not weak.','Мягкость — не слабость.'],['Your worth was never measured in numbers.','Твоя ценность никогда не измерялась цифрами.']];const nt=rnd(NOTES);$('#quote').textContent=nt[0];$('#quoteRu').textContent=nt[1];$('#saveNote').onclick=()=>{const f=store.get('dg_fav',[]);if(!f.includes(nt[0])){f.push(nt[0]);store.set('dg_fav',f)}$('#saveNote').textContent='♡ Saved'};
+// check-in
+const MOODS=[["☀️","Sunny"],["☁️","Cloudy"],["🌧️","Rainy"],["🌫️","Foggy"],["🌈","Changeable"],["🌙","Quiet"]],ENERGY=["Very low","Low","Okay","Good","High"];
+let mood=null,en=null;
+MOODS.forEach(m=>{const b=document.createElement('button');b.className='mood';b.innerHTML=`<i>${m[0]}</i>${m[1]}`;b.onclick=()=>{mood=m[1];$$('.mood').forEach(x=>x.classList.toggle('on',x===b))};$('#moods').appendChild(b)});
+ENERGY.forEach(m=>{const b=document.createElement('button');b.className='chip';b.textContent=m;b.onclick=()=>{en=m;$$('#energy .chip').forEach(x=>x.classList.toggle('on',x===b))};$('#energy').appendChild(b)});
+const FL=["🌸","🌷","🌼","🌻","🪻","🌺","🌿","🍀","🦋","🌙"];
+function renderGarden(){const g=store.get('dg_garden',[]);$('#garden').innerHTML=g.length?g.map(f=>`<span>${f}</span>`).join(''):'<span class="soft" style="font-size:14px">Your first flower is waiting.</span>'}
+const R={Tired:"Tired is valid. Rest isn’t something you have to earn.",Anxious:"Anxious is loud, but it isn’t the truth. Try the Calm tab if you’d like.",Calm:"Lovely. Let this calm settle in for a moment.",Sad:"Sadness is allowed to be here. You don’t need to fix it today.","Proud of me":"Yes! Let yourself enjoy that.",Empty:"Empty can be heavy. Thank you for noticing it honestly.",Irritated:"Irritation is information, not a flaw.","Warm inside":"What a soft feeling. Hold on to it."};
+$('#saveCheck').onclick=()=>{if(!mood){alert('Pick a feeling first');return}
+ const g=store.get('dg_garden',[]);g.push(rnd(FL));store.set('dg_garden',g);renderGarden();
+ const r=$('#checkMsg');r.hidden=false;r.textContent=(R2[mood]||'')+' A flower just bloomed in your garden 🌱';const c=$('#cap').value.trim(),w=store.get('dg_wx',[]);w.push({m:mood,c,d:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'})});store.set('dg_wx',w);$('#cap').value='';wx();burst($('#saveCheck'))};
+const R2={Sunny:'Lovely. Let the light stay a while.',Cloudy:'Clouds pass. You don’t have to clear them today.',Rainy:'Rain is allowed. You don’t need to fix it today.',Foggy:'Not knowing is okay. Clarity often comes later.',Changeable:'Lots of feelings at once is very human.',Quiet:'Quiet is okay too.'};
+function wx(){const w=store.get('dg_wx',[]);$('#wxh').innerHTML=w.slice(-5).reverse().map(x=>`<p class="soft">${x.d}: ${x.m}${x.c?' · '+esc(x.c):''}</p>`).join('')}
+renderGarden();
+// notes
+const PR=["One kind thing my body did for me today…","Something I’m proud of, however small…","What I’d say to a friend feeling like I do now…","A moment today that felt soft…","What I need right now is…","Something I’m looking forward to…"];
+let pr=rnd(PR);$('#prompt').textContent=pr;$('#noteNew').onclick=()=>{pr=rnd(PR);$('#prompt').textContent=pr};
+function renderNotes(){$('#notes').innerHTML=store.get('dg_notes',[]).slice(-3).reverse().map(n=>`<div class="hug"><div class="soft">${esc(n.p)}</div><p>${esc(n.t)}</p></div>`).join('')}
+$('#noteBtn').onclick=()=>{const t=$('#noteIn').value.trim();if(!t)return;const n=store.get('dg_notes',[]);n.push({p:pr,t});store.set('dg_notes',n);$('#noteIn').value='';renderNotes()};renderNotes();
+// breathing
+let br=null,bi=false,ex=4;
+$$('[data-p]').forEach(c=>c.onclick=()=>{ex=+c.dataset.p;$$('[data-p]').forEach(x=>x.classList.toggle('on',x===c))});
+$('#breathBtn').onclick=()=>{const o=$('#orb'),b=$('#breathBtn');
+ if(br){clearTimeout(br);br=null;o.classList.remove('in');o.textContent='ready?';b.textContent='Start';return}
+ let t=0;const step=()=>{bi=!bi;o.style.transitionDuration=(bi?4:ex)+'s';o.classList.toggle('in',bi);o.textContent=bi?'breathe in':'breathe out';say(bi?'Breathe in':'Breathe out');hap();if(++t>=24){b.click();return}br=setTimeout(step,(bi?4:ex)*1000)};
+ step();b.textContent='Stop'};
+// grounding
+const G=["Name 5 things you can see","Find 4 things you can touch","Listen: name 3 sounds","Notice 2 things you can smell","Take one slow breath. You are here."];let gi=-1;
+$('#gDots').innerHTML=G.map(()=>'<b></b>').join('');
+$('#gBtn').onclick=()=>{gi=(gi+1)%G.length;$('#gText').textContent=G[gi];say(G[gi]);$$('#gDots b').forEach((d,i)=>d.classList.toggle('on',i<=gi))};
+// wave
+const W=["The urge is rising. Just notice it.","Breathe. You don’t have to act on it.","It’s cresting. Waves always crest.","It’s starting to soften.","Almost there. You’re still here.","The wave has passed. Well done."];let wt=null;
+$('#waveBtn').onclick=()=>{const b=$('#waveBtn');if(wt){clearInterval(wt);wt=null;b.textContent='Start 3 minutes';$('#waveTxt').textContent='Ready when you are.';return}
+ let i=0;$('#waveTxt').textContent=W[0];b.textContent='Stop';wt=setInterval(()=>{i++;$('#waveTxt').textContent=W[Math.min(i,5)];say(W[Math.min(i,5)]);if(i>=5){clearInterval(wt);wt=null;b.textContent='Start 3 minutes'}},36000)};
+const P=["I’m allowed to rest.","This wave will pass.","I can be kinder to myself.","My body is a home, not a project.","Today, simply being is enough.","A setback doesn’t erase my path.","I don’t have to earn my place."];
+$('#pBtn').onclick=()=>{$('#aff').textContent=rnd(P)};
+// library
+const A=[
+["Self-acceptance","What is self-acceptance?","It isn’t loving every part of yourself all the time. It’s ending the war: noticing a harsh thought about your body, naming it as a thought, and choosing not to treat it as a verdict. Acceptance grows through small, repeated acts of kindness, not one big breakthrough."],
+["Body neutrality","What is body neutrality?","Body positivity asks you to love your body. Body neutrality asks for less pressure: your body doesn’t have to be admired to be respected. You can value it for what it does, like carrying you, letting you hug someone, or helping you rest, without grading how it looks."],
+["Setbacks","Why do setbacks happen?","Strict rules and harsh self-criticism often create the cycle they’re meant to stop: pressure builds, control slips, shame follows, and then rules get stricter. A setback isn’t failure. It’s a signal that you need more support and more softness. You can begin again at any moment."],
+["Pressure","Coping with social pressure","Diet talk, “wellness” feeds and comments about bodies can hit hard. You can mute or unfollow accounts that leave you feeling worse, change the subject kindly, or say “I’d rather not talk about food and bodies.” Protecting your peace is a skill, not rudeness."],
+["Signals","Listening to your body","Hunger, tiredness, thirst and emotions are signals, not enemies. If they feel confusing right now, that’s common, especially after a long time of ignoring them. Start with curiosity: what do I notice? Needing a professional to help you reconnect is completely okay."],
+["Inner voice","Talking to yourself kindly","Try this: if a friend said what you just told yourself, what would you answer? Then say that to yourself. You don’t need to jump from self-hate to self-love. “I’m doing my best with what I have today” is a great first step."],
+["Support","How to ask for help","You don’t need to be ‘sick enough’ to deserve support. You can start with one sentence to someone safe: “I’ve been struggling with food and my thoughts, and I need some support.” A doctor or psychologist can guide next steps."]];
+const tags=["All",...new Set(A.map(a=>a[0]))];let tg="All";
+function renderLib(){$('#tags').innerHTML=tags.map(t=>`<span class="chip${t===tg?' on':''}" data-t="${t}">${t}</span>`).join('');
+ $('#articles').innerHTML=A.filter(a=>tg==="All"||a[0]===tg).map(a=>`<details><summary>${a[1]}<small>${a[0]}</small></summary><p>${a[2]}</p></details>`).join('');
+ $$('#tags .chip').forEach(c=>c.onclick=()=>{tg=c.dataset.t;renderLib()})}renderLib();
+// feed
+const seed=[{n:"Anonymous",t:"Today I managed not to scold myself about food. A small win."},{n:"Anonymous",t:"Last night was rough, but I made it to morning. Sending warmth to all of you."},{n:"Anonymous",t:"I wore something I like without checking the mirror ten times."}];
+function renderFeed(){$('#feed').innerHTML=[...store.get('dg_feed',[]).reverse(),...seed].map(p=>`<div class="card"><div class="soft">${esc(p.n)}</div><p>${esc(p.t)}</p><div>${['Thank you for sharing','You deserve support','You don’t have to be perfect'].map(r=>`<span class="chip rp">${r}</span>`).join('')}</div></div>`).join('');$$('#feed .rp').forEach(c=>c.onclick=()=>{c.parentNode.innerHTML='<span class="soft">Your kind words were sent 💌</span>'})}
+$('#postBtn').onclick=()=>{const t=$('#post').value.trim();if(!t)return;const f=store.get('dg_feed',[]);f.push({n:$('#anon').checked?'Anonymous':'Me',t});store.set('dg_feed',f);$('#post').value='';renderFeed()};renderFeed();
+if(!AI_URL)$('[data-v=chat]').style.display='none';
+wx();$('#still').checked=store.get('dg_still',false);document.body.classList.toggle('still',$('#still').checked);$('#still').onchange=e=>{store.set('dg_still',e.target.checked);document.body.classList.toggle('still',e.target.checked)};
+const chips=(a,c)=>a.map(x=>`<span class="chip ${c}">${x}</span>`).join('');
+const TPL=[['Hard day','Dear me, I know today is hard. You don’t need to become someone else to deserve kindness. '],['Future me','Dear future me, right now I’m hoping that '],['Words I need','Dear me, the words I’d love to hear are: ']];
+const WI=['I allowed myself to rest','I asked for help','I noticed I was too hard on myself','I spent time with someone who feels safe','I did something just because I wanted to'];
+const CARDS=[['My body is not a project','I don’t have to keep working on my looks. I can give my time and energy to relationships, creativity, rest, study and what matters to me.'],['More than how I look','Which qualities do I value in myself that have nothing to do with appearance?'],['Right to comfort','What would help me feel more comfortable today?'],['Some days I don’t think about it','Neutrality means I’m allowed not to think about my body at all today.']];
+const UNT=['I feel I must look a certain way to be loved','I compare myself to girls online','I don’t feel good enough','I feel guilty when I rest','I struggle with changes in my body'];
+const UQ=['Where did I first hear this thought?','Is it really my belief?','What would I tell a friend who thinks this?','What would a kinder thought sound like?'];
+const MB=['🌿','🌸','🕯️','🌊','📚','🎨','☕','🌙','🦋'];
+let st='Letters';const ST=['Letters','Mirror','Wins','Ideas','Release','Plan','Cards','Unlearn','Moodboard','Night'];
+function sp(){$('#sTabs').innerHTML=ST.map(t=>`<span class="chip${t===st?' on':''}" data-s="${t}">${t}</span>`).join('');$$('#sTabs .chip').forEach(c=>c.onclick=()=>{st=c.dataset.s;sp()});PAN[st]()}
+const PAN={
+Letters(){const L=store.get('dg_letters',[]);$('#sBody').innerHTML=`<div class="card"><h3>Dear me…</h3>${chips(TPL.map(t=>t[0]),'tp')}<textarea id="lt" style="margin-top:8px" placeholder="Write a letter to yourself"></textarea><label class="soft"><input type="checkbox" id="lh"> Read when it’s hard</label><br><button class="btn" id="ls">Save</button> <button class="btn alt" id="lo">Open a “when it’s hard” letter</button><div id="lv"></div></div>${L.filter(l=>!l.h).slice(-4).reverse().map(l=>`<div class="hug">${esc(l.t)}</div>`).join('')}`;$$('.tp').forEach((c,i)=>c.onclick=()=>{$('#lt').value=TPL[i][1]});$('#ls').onclick=()=>{const t=$('#lt').value.trim();if(!t)return;L.push({t,h:$('#lh').checked});store.set('dg_letters',L);PAN.Letters()};$('#lo').onclick=()=>{const h=L.filter(l=>l.h);$('#lv').innerHTML=`<div class="hug">${h.length?esc(rnd(h).t):'You haven’t saved one yet. Write one on a softer day for the harder ones.'}</div>`}},
+Wins(){const W=store.get('dg_wins',[]);$('#sBody').innerHTML=`<div class="card"><h3>Today I want to remember…</h3>${chips(WI,'wi')}<input type="text" id="wt" maxlength="120" style="margin-top:8px"><button class="btn" id="wb">Save</button></div>${W.slice(-8).reverse().map(w=>`<div class="card" style="padding:12px">✨ ${esc(w)}</div>`).join('')}`;$$('.wi').forEach(c=>c.onclick=()=>{$('#wt').value=c.textContent});$('#wb').onclick=()=>{const t=$('#wt').value.trim();if(!t)return;W.push(t);store.set('dg_wins',W);PAN.Wins()}},
+Cards(){const f=store.get('dg_fav',[]),c=rnd(CARDS);$('#sBody').innerHTML=`<div class="card"><div class="aff" style="flex-direction:column;font-size:19px"><b class="it">${c[0]}</b><span style="font-size:16px;margin-top:6px">${c[1]}</span></div><button class="btn alt" id="cn">Another card</button> <button class="btn" id="cs">♡ Save</button></div>${f.length?'<h3>Saved</h3>':''}${f.map(x=>`<div class="hug">${esc(x)}</div>`).join('')}`;$('#cn').onclick=()=>PAN.Cards();$('#cs').onclick=()=>{if(!f.includes(c[0])){f.push(c[0]);store.set('dg_fav',f)}PAN.Cards()}},
+Unlearn(){$('#sBody').innerHTML=`<p class="soft">Pick a thought that sounds familiar. This isn’t therapy, just a way to look at it from another side.</p>${chips(UNT,'un')}<div id="uq"></div>`;$$('.un').forEach(c=>c.onclick=()=>{$$('.un').forEach(x=>x.classList.toggle('on',x===c));$('#uq').innerHTML=`<div class="card"><p class="it">${c.textContent}</p>${UQ.map(q=>`<p>• ${q}</p>`).join('')}<textarea placeholder="Write if you want. This isn’t saved."></textarea></div>`})},
+Moodboard(){const m=store.get('dg_mb',[]),p=store.get('dg_mbp',[]);$('#sBody').innerHTML=`<div class="card"><h3>Things I love</h3>${MB.map(x=>`<span class="chip mb${m.includes(x)?' on':''}">${x}</span>`).join('')}<div class="garden" style="margin-top:12px;font-size:38px">${m.map(x=>`<span>${x}</span>`).join('')}</div><input type="text" id="mp" maxlength="80" placeholder="A phrase that feels like me" style="margin-top:10px"><button class="btn" id="mb2">Add</button>${p.map(x=>`<p class="it">“${esc(x)}”</p>`).join('')}</div>`;$$('.mb').forEach(c=>c.onclick=()=>{const x=c.textContent,i=m.indexOf(x);if(i<0)m.push(x);else m.splice(i,1);store.set('dg_mb',m);PAN.Moodboard()});$('#mb2').onclick=()=>{const t=$('#mp').value.trim();if(!t)return;p.push(t);store.set('dg_mbp',p);PAN.Moodboard()}},
+Night(){$('#sBody').innerHTML=`<div class="card"><h3>Night Garden 🌙</h3><p class="soft">All optional. Do one, all or none.</p><button class="btn alt" id="nm">Switch to night colors</button><p style="margin-top:14px">Leave today’s worries here (not saved):</p><textarea></textarea><p>What helped today?</p>${chips(['Rest','A kind word','Music','Fresh air','Tea','Someone’s company'],'nh')}<br><button class="btn alt" id="nl">Read a short letter</button><div id="nv"></div><button class="btn" id="nc">Just close the app</button></div>`;$('#nm').onclick=()=>{th='dark';store.set('dg_theme',th);applyTh()};$$('.nh').forEach(c=>c.onclick=()=>c.classList.toggle('on'));$('#nl').onclick=()=>{const h=store.get('dg_letters',[]);$('#nv').innerHTML=`<div class="hug">${h.length?esc(rnd(h).t):'You don’t have to earn your rest. Goodnight.'}</div>`};$('#nc').onclick=()=>{$('#sBody').innerHTML='<div class="hero" style="text-align:center"><h2>Goodnight 🌙</h2><p class="it">You did enough today.</p></div>'}}
+};
+sp();
+const SR={'🌷 I’m overwhelmed':['Stop for a moment and look around the room.','Feel what is holding you up: the floor, a chair, your bed.','Let your shoulders drop, only if that’s comfortable.','Breathe out slowly, a little longer than you breathe in.'],'🫧 I’m anxious':['Look around and name three things you can see.','Press your feet into the floor and notice the support.','Breathe out slowly. You are safe in this moment.','Say quietly: this feeling will pass.'],'🕊️ I’m too hard on myself':['Notice the harsh voice without arguing with it.','Ask: what would I say to a friend right now?','Say that to yourself, even quietly.','Rest a hand on your chest if that feels okay.']};
+function rOpen(){$('#reset').hidden=false;$('#rBody').innerHTML=`<h3>What’s it like right now?</h3>${Object.keys(SR).map(k=>`<button class="btn alt rk" style="display:block;width:100%">${k}</button>`).join('')}<p class="soft">You can stop any time. If something feels worse, just close this.</p><button class="chip" id="rx">Close</button>`;$('#rx').onclick=()=>{$('#reset').hidden=true};$$('.rk').forEach(b=>b.onclick=()=>rStep(b.textContent,0))}
+function rStep(k,i){const s=SR[k];if(i<s.length){$('#rBody').innerHTML=`<p class="soft">${i+1} of ${s.length}</p><p class="it" style="font-size:21px">${s[i]}</p><button class="btn" id="rn">Next</button> <button class="chip" id="rx">Stop</button>`;say(s[i]);$('#rn').onclick=()=>rStep(k,i+1);$('#rx').onclick=()=>{$('#reset').hidden=true}}else{$('#rBody').innerHTML=`<h3>What do you need now?</h3>${chips(['Quiet','Support','Rest','To talk'],'rn2')}`;$$('.rn2').forEach(c=>c.onclick=()=>{$('#reset').hidden=true;if(c.textContent==='To talk'&&!!AI_URL)$('[data-v=chat]').click()})}}
+$('#resetBtn').onclick=rOpen;
+const SK={Rose:'#d8688a',Sage:'#5e9b79',Sky:'#6f8fd0',Sun:'#d9983f',Lilac:'#9a78c8'};
+function skin(n){if(!n||n==='Rose')document.documentElement.style.removeProperty('--acc');else document.documentElement.style.setProperty('--acc',SK[n])}skin(store.get('dg_skin','Rose'));
+let vo=store.get('dg_voice',false);
+function say(t){return;if(!vo||!('speechSynthesis' in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.rate=.85;u.pitch=1.05;u.lang='en-US';speechSynthesis.speak(u)}catch(e){}}
+$('#vt').style.display='none';function vtUI(){$('#vt').textContent='🔊 Voice: '+(vo?'on':'off')}$('#vt').onclick=()=>{vo=!vo;store.set('dg_voice',vo);vtUI();if(vo)say('Voice guidance is on. I am here with you.')};vtUI();
+for(let i=0;i<10;i++){const p=document.createElement('span');p.className='petal';p.textContent=rnd(['🌸','🌷','🤍','🦋']);p.style.cssText=`left:${Math.random()*100}%;font-size:${14+Math.random()*14}px;animation-duration:${16+Math.random()*14}s;animation-delay:-${Math.random()*20}s`;document.body.appendChild(p)}
+function favBtn(){const f=store.get('dg_fp',''),b=$('#favBtn');if(!f){b.hidden=true;return}b.hidden=false;b.textContent='✨ My go-to: '+f;b.onclick=()=>{if(f==='Write a letter'){st='Letters';$('[data-v=space]').click();sp()}else{$('[data-v=calm]').click();if(f==='Breathing')$('#breathBtn').click()}}}favBtn();
+const RM=['Off','Morning','Evening'];let rm=store.get('dg_rem','Off');
+function remUI(){$('#rem').innerHTML=RM.map(x=>`<span class='chip${x===rm?' on':''}'>${x}</span>`).join('');$$('#rem .chip').forEach(c=>c.onclick=()=>{rm=c.textContent;store.set('dg_rem',rm);remUI()})}remUI();
+function skUI(){const cur=store.get('dg_skin','Rose');$('#sk').innerHTML=Object.keys(SK).map(x=>`<span class='chip${x===cur?' on':''}' style='border-color:${SK[x]}'>${x}</span>`).join('');$$('#sk .chip').forEach(c=>c.onclick=()=>{store.set('dg_skin',c.textContent);skin(c.textContent);skUI()})}skUI();
+const hr=new Date().getHours(),td=new Date().toDateString();
+if(((rm==='Morning'&&hr<12)||(rm==='Evening'&&hr>=17))&&store.get('dg_ban','')!==td){const b=$('#ban');b.hidden=false;b.innerHTML=(rm==='Morning'?'Good morning 🌷 No pressure. Maybe one gentle check-in today?':'Good evening 🌙 You did enough today. Want a quiet moment?')+`<br><button class='chip' id='bx'>Dismiss</button>`;$('#bx').onclick=()=>{b.hidden=true;store.set('dg_ban',td)}}
+const WE={Sunny:'☀️',Cloudy:'☁️',Rainy:'🌧️',Foggy:'🌫️',Changeable:'🌈',Quiet:'🌙'};
+$('#wkBtn').onclick=()=>{const w=store.get('dg_wx',[]).slice(-7),n=store.get('dg_wins',[]).slice(-3);$('#wk').innerHTML=`<div class='card'><h3>Your week, gently</h3>${w.length?`<div class='garden'>${w.map(x=>`<span>${WE[x.m]||'🌸'}</span>`).join('')}</div><p class='soft'>All kinds of weather belong here. None is better or worse.</p>`:`<p class='soft'>No check-ins yet, and that’s fine.</p>`}${n.length?'<h3>Small things you wanted to remember</h3>'+n.map(x=>`<p>✨ ${esc(x)}</p>`).join(''):''}<p class='it'>What would you like to take into next week?</p><textarea placeholder='Optional'></textarea></div>`};
+function oStep(i){const B=$('#oBody'),nx=()=>oStep(i+1),sk=`<button class='chip' id='os'>Skip</button>`;
+if(i===0){B.innerHTML=`<h3>Welcome 🌷</h3><p>A soft place: no numbers, no judging. Three quick things, all optional.</p><input type='text' id='on' maxlength='20' placeholder='What should I call you?'><button class='btn' id='oo'>Next</button> ${sk}`;$('#oo').onclick=()=>{const v=$('#on').value.trim();if(v){store.set('dg_name',v);greet()}nx()}}
+else if(i===1){B.innerHTML=`<h3>Pick your color</h3>${Object.keys(SK).map(x=>`<span class='chip oc' style='border-color:${SK[x]}'>${x}</span>`).join('')}<br>${sk}`;$$('.oc').forEach(c=>c.onclick=()=>{store.set('dg_skin',c.textContent);skin(c.textContent);skUI();nx()})}
+else if(i===2){B.innerHTML=`<h3>What helps you most?</h3>${chips(['Breathing','Grounding','Ride the wave','Write a letter'],'of')}<br>${sk}`;$$('.of').forEach(c=>c.onclick=()=>{store.set('dg_fp',c.textContent);favBtn();nx()})}
+else{store.set('dg_onb',true);$('#onb').hidden=true;greet()}
+const s=$('#os');if(s)s.onclick=nx}
+if(!store.get('dg_onb',false)){$('#onb').hidden=false;oStep(0)}
+function hap(){try{navigator.vibrate&&navigator.vibrate(25)}catch(e){}}
+function burst(el){if(document.body.classList.contains('still'))return;const r=(el||document.body).getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;for(let i=0;i<14;i++){const s=document.createElement('span');s.className='burst';s.textContent=rnd(['🌸','✨','🌷','🤍']);const a=Math.random()*6.28,d=60+Math.random()*90;s.style.cssText=`left:${x}px;top:${y}px;--x:${Math.cos(a)*d}px;--y:${Math.sin(a)*d}px`;document.body.appendChild(s);setTimeout(()=>s.remove(),1500)}hap()}
+const hh=new Date().getHours(),sg=hh<6?'var(--sky),var(--acc2)':hh<12?'var(--sun),var(--acc2)':hh<18?'var(--sky),var(--sage)':'var(--acc2),var(--sky)';document.querySelector('.hero').style.background=`linear-gradient(135deg,${sg})`;
+let AC=null,SN=null;
+function stopSn(){if(SN){try{SN.forEach(n=>n.stop&&n.stop())}catch(e){}SN=null}}
+function playSn(k){stopSn();const m=$('#snMsg');if(k==='off'){m.textContent='';if(window.sil)window.sil.pause();return}try{if(!window.sil){window.sil=new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAAA=');window.sil.loop=true}window.sil.play().catch(()=>{})}catch(e){}try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();AC.resume();const g=AC.createGain();g.gain.setValueAtTime(0,AC.currentTime);g.gain.linearRampToValueAtTime(.6,AC.currentTime+2);g.connect(AC.destination);const nodes=[];
+if(k==='hum'){[110,165,220,277].forEach(f=>{const o=AC.createOscillator();o.type='sine';o.frequency.value=f;const og=AC.createGain();og.gain.value=.16;o.connect(og);og.connect(g);o.start();nodes.push(o)})}
+else{const len=AC.sampleRate*3,buf=AC.createBuffer(1,len,AC.sampleRate),d=buf.getChannelData(0);let l=0;for(let i=0;i<len;i++){const w=Math.random()*2-1;l=(l+.02*w)/1.02;d[i]=k==='rain'?w*.5:l*3.5}const s=AC.createBufferSource();s.buffer=buf;s.loop=true;const f=AC.createBiquadFilter();f.type=k==='rain'?'highpass':'lowpass';f.frequency.value=k==='rain'?1800:500;s.connect(f);
+if(k==='ocean'){const lfo=AC.createOscillator(),lg=AC.createGain(),og=AC.createGain();lfo.frequency.value=.1;lg.gain.value=.12;og.gain.value=.3;lfo.connect(lg);lg.connect(og.gain);f.connect(og);og.connect(g);lfo.start();nodes.push(lfo)}else f.connect(g);s.start();nodes.push(s)}
+SN=nodes;m.textContent='Playing. If you hear nothing, check your volume and silent mode.'}catch(e){m.textContent='Sound isn’t supported on this device.'}}
+$$('.sn').forEach(c=>c.onclick=()=>{playSn(c.dataset.n);$$('.sn').forEach(x=>x.classList.toggle('on',x===c&&c.dataset.n!=='off'))});
+const MQ=[['What happened just before I started to feel worse?',['Something someone said','I scrolled online','I was alone','I was tired or hungry','Nothing specific']],['What am I feeling, really?',['Tired','Anxious','Lonely','Sad','Overwhelmed','Not sure']],['What would help me feel a little safer?',['Rest','A kind message','Fresh air','Quiet','A distraction','To be heard']]];
+PAN.Mirror=function(){let i=0;const a=[],B=$('#sBody');const go=()=>{if(i<3){B.innerHTML=`<div class='card'><p class='soft'>Sometimes we feel unhappy with ourselves, but we may simply be tired, anxious, or have compared ourselves for too long.</p><h3>${MQ[i][0]}</h3>${chips(MQ[i][1],'mq')}<input type='text' id='mx' maxlength='100' placeholder='Or write your own' style='margin-top:10px'><button class='btn' id='mn'>Next</button></div>`;$$('.mq').forEach(c=>c.onclick=()=>{$('#mx').value=c.textContent});$('#mn').onclick=()=>{a[i]=$('#mx').value.trim()||'something I can’t name yet';i++;go()}}else{B.innerHTML=`<div class='hero'><p class='soft' style='margin:0'>Your mirror</p><p class='it' style='font-size:20px'>Before I felt worse: ${esc(a[0].toLowerCase())}. Underneath, I feel ${esc(a[1].toLowerCase())}. What might help me feel safer: ${esc(a[2].toLowerCase())}.</p><p class='soft'>There are no good or bad feelings here. Only information about what you need.</p></div><button class='btn alt' id='mr'>Start again</button>`;$('#mr').onclick=()=>PAN.Mirror()}};go()};
+function bubs(){const B=$('#bub');B.innerHTML='';for(let i=0;i<24;i++){const b=document.createElement('button');b.textContent='🫧';b.style.cssText='background:none;border:0;font-size:30px;padding:4px';b.onclick=()=>{b.style.visibility='hidden';b.dataset.p=1;burst(b);if([...B.children].every(x=>x.dataset.p))setTimeout(bubs,600)};B.appendChild(b)}}bubs();
+const KI=['Make a warm drink and sip it slowly','Text someone you like, just to say hi','Step outside for a few minutes of fresh air','Put on a song you love','Wash your face with warm water','Doodle anything at all','Tidy one tiny corner','Watch something comforting','Stretch, if it feels good','Write down something you’re curious about','Lie down for a while with no screen','Read a few pages of a book','Look at a plant or water one','Wrap yourself in a blanket'];
+PAN.Ideas=function(){$('#sBody').innerHTML=`<div class='card'><h3>Something kind to do 🎁</h3><div class='aff' style='font-size:20px'>${rnd(KI)}</div><button class='btn' id='ki'>Surprise me again</button></div><p class='soft'>None of these are about how you look. Pick one, or none.</p>`;$('#ki').onclick=()=>PAN.Ideas()};
+PAN.Release=function(){$('#sBody').innerHTML=`<div class='card'><h3>Let it float away 🎈</h3><p class='soft'>Write a worry or a heavy thought. It isn’t saved anywhere.</p><textarea id='rl' placeholder='What’s weighing on you?'></textarea><button class='btn' id='rb'>Let it go</button><div id='rf' style='height:130px;position:relative;overflow:hidden'></div></div>`;$('#rb').onclick=()=>{const t=$('#rl').value.trim();if(!t)return;$('#rl').value='';const e=document.createElement('div');e.className='float';e.textContent='🎈 '+t;$('#rf').appendChild(e);hap();setTimeout(()=>e.remove(),6000)}};
+PAN.Plan=function(){const P2=store.get('dg_plan',{}),F=[['a','Things that help me calm down'],['b','People I can reach out to'],['c','Places or things that feel safe'],['d','A kind sentence to myself']];$('#sBody').innerHTML=`<div class='card'><h3>My support plan 🧷</h3><p class='soft'>Fill it in on a calmer day, open it on a harder one. Private, on this device.</p>${F.map(f=>`<p style='margin-bottom:2px'>${f[1]}</p><textarea data-k='${f[0]}' style='min-height:56px'>${esc(P2[f[0]]||'')}</textarea>`).join('')}<button class='btn' id='pl'>Save</button><p class='note'>If you are in danger or thinking of hurting yourself, call 112 now. For support you can call 111 or 150, or tell someone you trust.</p></div>`;$('#pl').onclick=()=>{const o={};$$('[data-k]').forEach(t=>o[t.dataset.k]=t.value);store.set('dg_plan',o);$('#pl').textContent='Saved ♡'}};
+// AI
+let hist=[],busy=false;
+const IDEAS=["I feel overwhelmed","I had a hard day with food thoughts","Help me be kinder to myself","I just need to vent"];
+$('#ideas').innerHTML=IDEAS.map(i=>`<span class="chip">${i}</span>`).join('');
+$$('#ideas .chip').forEach(c=>c.onclick=()=>{$('#chatIn').value=c.textContent;send()});
+async function send(){const inp=$('#chatIn'),t=inp.value.trim();if(!t||busy)return;inp.value='';busy=true;
+ $('#chat').insertAdjacentHTML('beforeend',`<div class="msg me">${esc(t)}</div>`);hist.push({role:'user',content:t});
+ const el=document.createElement('div');el.className='msg ai';el.textContent='…';$('#chat').appendChild(el);
+ try{const res=await fetch(AI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist.slice(-12)})});if(!res.ok)throw 0;const r=await res.json();el.textContent=r.text;hist.push({role:'assistant',content:r.text})}
+ catch(e){el.textContent='Something went wrong. Please try again in a moment.'}
+ busy=false;el.scrollIntoView({block:'nearest'})}
+$('#sendBtn').onclick=send;$('#chatIn').addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
