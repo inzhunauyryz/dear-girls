@@ -1,0 +1,7 @@
+{
+  "name": "deargirls",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./", "binding": "ASSETS" },
+  "ai": { "binding": "AI" }
+}
